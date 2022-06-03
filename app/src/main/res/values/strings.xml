@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Music appliance</string>
+    <string name="title_home">HOME</string>
+    <string name="title_search">SEARCH</string>
+    <string name="title_love">FAVORITES</string>
+    <string name="title_header_home">WELCOME BACK</string>
+</resources>
