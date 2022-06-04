@@ -1,13 +1,18 @@
 package ru.music.appliance.ui.cards;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+
+import ru.music.appliance.R;
 
 public class HomeCardView extends BaseCardView{
 
@@ -22,16 +27,23 @@ public class HomeCardView extends BaseCardView{
     @Override
     View content() {
         Context context = getContext();
-        LinearLayout a = new LinearLayout(context);
-        a.setOrientation(LinearLayout.HORIZONTAL);
+        LinearLayout root = new LinearLayout(context);
+        root.setOrientation(LinearLayout.VERTICAL);
 
+        ImageView view = new ImageView(context);
+        view.setLayoutParams(new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
+        Drawable drawable = context.getResources().getDrawable(R.drawable.image);
+        view.setImageDrawable(drawable);
+        view.setScaleType(ImageView.ScaleType.FIT_START);
 
         TextView textView = new TextView(context);
         textView.setText("lol");
 
-        a.addView(textView);
 
-        return a;
+        root.addView(view);
+        root.addView(textView);
+
+        return root;
     }
 }

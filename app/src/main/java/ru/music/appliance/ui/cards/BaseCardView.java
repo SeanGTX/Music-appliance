@@ -19,6 +19,7 @@ public abstract class BaseCardView extends CardView {
 
     public void setOnCardClickListener(OnCardClickListener listener) {
         this.listener = listener;
+        setOnClickListener(listener);
     }
 
     private int dpToPx(int dp){
@@ -38,12 +39,12 @@ public abstract class BaseCardView extends CardView {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.WRAP_CONTENT
                 );
-        params.setMargins(30, 15, 30, 15);
+        params.setMargins(dpToPx(30), dpToPx(15), dpToPx(30), dpToPx(15));
 
         setLayoutParams(params);
-        setRadius(16);
+        setRadius(dpToPx(4));
         int color = getResources().getColor(R.color.card);
-        setBackgroundColor(color);
+        setCardBackgroundColor(color);
         setOnClickListener(listener);
         addView(content());
     }
